@@ -13,6 +13,24 @@
 <body ng-app="ShoeApp" ng-controller="ShoeController as vm">
     <h1>Shoe Store</h1>
     {{vm.message}}
+    <h2>All of the Shoes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="shoes in vm.shoes">
+                <td>
+                    {{shoes.name}}
+                </td>
+                <td>
+                    {{shoes.cost}}
+            </tr>
+        </tbody>
+    </table>
     
 </body>
 </html>
