@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/katiemikul/kochab-shoe-store/issues"
   },
-  "homepage": "https://github.com/katiemikul/kochab-shoe-store#readme"
+  "homepage": "https://github.com/katiemikul/kochab-shoe-store#readme",
+  "dependencies": {
+    "angular": "^1.6.10",
+    "angular-route": "^1.6.10",
+    "pg": "^7.4.1"
+  }
 }
