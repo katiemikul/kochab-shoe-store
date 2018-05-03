@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
 
     <title>Shoe Store</title>
 </head>
+
 <body ng-app="ShoeApp" ng-controller="ShoeController as vm">
     <h1>Shoe Store</h1>
     {{vm.message}}
@@ -19,6 +21,8 @@
             <tr>
                 <th>Name</th>
                 <th>Cost</th>
+                <th>Delete</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -28,9 +32,16 @@
                 </td>
                 <td>
                     {{shoes.cost}}
+                    <td>
+                        <button ng-click="TBDDelete">Delete Shoe</button>
+                    </td>
+                    <td>
+                        <button ng-click="TBDEdit">Edit Shoe</button>
+                    </td>
             </tr>
         </tbody>
     </table>
-    
+
 </body>
+
 </html>
