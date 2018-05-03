@@ -61,6 +61,32 @@ app.post('/shoe', (req, res) => {
     // res.sendStatus(201);
 });
 
+app.delete('/shoe', (req, res) => {
+    const shoe = req.query;
+    pool.query(`DELETE FROM "shoes"
+    WHERE "id" = $1;`, [shoe.id])
+    .then(function(response) {
+        console.log(response);
+    })
+    .catch(function(error) {
+        console.log('error on /shoe DELETE', error);
+    });
+})
+
+app.put('/shoe', (req, res) => {
+    const shoe = (req.body);
+    pool.query(`UPDATE "shoes"
+    SET ($1, $2);
+    WHERE "id" = $1;`, [shoe.name, shoe.cost])
+    .then((results) => {
+        console.log(results);
+        res.sendStatus(200);
+    })
+    .catch((error) => {
+        console.log('error on /shoe PUT', error);
+    });
+})
+
 app.listen(PORT, () => {
     console.log('listening on port', PORT);
 });

@@ -21,11 +21,12 @@ app.controller('ShoeController', ['$http', function($http) {
             console.log('error on /shoe GET', error);
         });
     }
-    self.deleteShoe = function() {
+    self.deleteShoe = function(shoes) {
         console.log('deleting show from array');
         $http({
             method: 'DELETE',
-            url: '/shoe'
+            url: '/shoe',
+            params: shoes,
         })
         .then(function(response) {
             console.log(response);
@@ -33,7 +34,22 @@ app.controller('ShoeController', ['$http', function($http) {
         .catch(function(error) {
             console.log('error on /shoe DELETE', error);
         });
-        displayShoes();
+        self.displayShoes();
     }
     self.displayShoes();
+
+    self.editShoes = function(changeShoes){
+        $http({
+            method: 'PUT',
+            url: '/shoe',
+            params: changeShoes,
+        })
+        .then(function(response){
+            console.log('revising shoe to:', response);
+        })
+        .catch(function(error){
+            console.log('error on /shoe PUT', error);
+        })
+    self.displayShoes();
+    }
 }])

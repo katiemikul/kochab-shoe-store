@@ -28,15 +28,15 @@
         <tbody>
             <tr ng-repeat="shoes in vm.shoes">
                 <td>
-                    {{shoes.name}}
+                    <input ng-model="shoes.name">
                 </td>
                 <td>
-                    {{shoes.cost}}
+                    <input ng-model="shoes.cost">
                     <td>
-                        <!-- <button ng-click="vm.deleteShoe(shoes)">Delete Shoe</button> -->
+                        <button ng-click="vm.deleteShoe(shoes)">Delete Shoe</button>
                     </td>
                     <td>
-                        <button ng-click="TBDEdit">Edit Shoe</button>
+                        <button ng-click="vm.editShoes(changeShoes)">Edit Shoe</button>
                     </td>
             </tr>
         </tbody>
