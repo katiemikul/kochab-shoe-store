@@ -31,9 +31,18 @@ const shoeCollection=require('./modules/shoe_collection');
 
 app.use(bodyParser.json());
 app.use(express.static('server/public'));
+
 // Routes
 app.get('/shoe', (req, res) => {
-    res.send(shoeCollection);
+    pool.query(`SELECT * FROM "shoes"`)
+    .then((results) => {
+        res.send(results.rows)
+        console.log(results)
+    })
+    .catch((error) => {
+        console.log('error with get to /shoe', error);
+    });
+    // res.send(shoeCollection);
 });
 
 app.post('/shoe', (req, res) => {
